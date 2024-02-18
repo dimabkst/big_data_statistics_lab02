@@ -2,7 +2,6 @@ import pandas as pd
 from traceback import print_exc
 from random import uniform
 from time import perf_counter
-from typing import List
 
 def transform_scores(score: str):
     try:
