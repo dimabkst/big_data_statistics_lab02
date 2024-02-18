@@ -71,6 +71,7 @@ if __name__ == '__main__':
             if i:
                 sample = fractional_interval_method(overall_scores, sample_len)
             else:
+                # Calculate method work time
                 start_time = perf_counter()
 
                 sample = fractional_interval_method(overall_scores, sample_len)
