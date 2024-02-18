@@ -87,6 +87,7 @@ if __name__ == '__main__':
 
         samples_std = pd.concat(samples).std()
 
+        print(f'Execution time: {method_work_time}')
         print(f'General mean: {general_mean}')
         print(f'Sample means: {sample_means}')
         print(f'Samples std: {samples_std}')
