@@ -46,7 +46,7 @@ def fractional_interval_method(data: pd.Series, n: int):
 
     a = N / n
 
-    alpha = uniform(1.0, a)
+    alpha = uniform(0.0, a)
 
     sample = [data[int(alpha + i * a)] for i in range(n)]
 
@@ -85,12 +85,15 @@ if __name__ == '__main__':
 
         sample_means = [sample.mean() for sample in samples]
 
-        samples_std = pd.concat(samples).std()
+        samples_std = pd.Series(sample_means).std()
 
-        print(f'Execution time: {method_work_time}')
-        print(f'General mean: {general_mean}')
-        print(f'Sample means: {sample_means}')
-        print(f'Samples std: {samples_std}')
+        samples_mean = pd.Series(sample_means).mean()
+
+        print(f'Час виконання: {method_work_time}')
+        print(f'Середні значення для отриманих вибірок: {sample_means}')
+        print(f'Стандартне відхилення між середніми значеннями вибірок: {samples_std}')
+        print(f'Середнє значення генеральної сукупності: {general_mean}')
+        print(f'Середнє значення по вибіркам: {samples_mean}')
     except Exception as e:
         print('Error occurred:')
         print_exc()
